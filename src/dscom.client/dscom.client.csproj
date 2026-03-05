@@ -1,10 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>dscom</AssemblyName>
+    <AssemblyName>dscom_exp</AssemblyName>
+    <AssemblyName Condition="'$(Platform)'=='x86'">$(AssemblyName)32</AssemblyName>
+    <AssemblyName Condition="'$(Platform)'=='Debug'">$(AssemblyName)d</AssemblyName>
     <OutputType>Exe</OutputType>
     <TargetFrameworks>net8.0</TargetFrameworks>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>$(Platform)</PlatformTarget>
     <Platforms>AnyCPU;x86</Platforms>
     <RuntimeIdentifiers Condition="'$(PackForBuildTaskTools)' == 'true'">win-x64;win-x86</RuntimeIdentifiers>
     <RootNamespace>dSPACE.Runtime.InteropServices</RootNamespace>
